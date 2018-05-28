@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 
 From the highest level, I split the video into clips and images, and edit each of the image with an function, named process_image, which mask lane lines with red on each of the image.
 
-The process_image function is a pipline consisted of 5 steps:
+The process_image function is a pipline consisted of 4 steps:
 * get the gray version
 * make it Gaussian blur, get the canny version to mark edges
 * use mask to focus on the interested area, get the lines use hough transformation 
