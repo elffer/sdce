@@ -28,7 +28,7 @@ The process_image function is a pipline consisted of 4 steps:
 * get the lined image by combining the lines and the initial image.
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by:
-* calculate the slope by averating the slopes of all the shot segments;
+* calculate the slope by averaging the slopes of all the shot segments;
 * get the mean position of all the start and end positions of segments, from left lanes and right lanes, seperately.
 
 
