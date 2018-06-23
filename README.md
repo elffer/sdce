@@ -8,6 +8,7 @@ As listed by the class, the rep has been splited into 3 terms. Currently I am wo
 Status of Projects:
 
 Term 1:
+
 [Finished] Project 1: Finding Lane Lines on the Road
 
 [Finished] Project 2: Build a Traffic Sign Recognition Classifier
