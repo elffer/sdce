@@ -1,26 +1,26 @@
 import csv
 import cv2
 import numpy as np
-# import os
-
-
 import tensorflow as tf
+from sklearn.model_selection import train_test_split
+from sklearn.utils import shuffle
 
-
+# 1. Import the data got from training mode (only build up a table to )
 lines = []
-drive_log = 'data/data_uda/driving_log.csv'
 drive_log_1 = 'data/elffer_cycling_data/group1/driving_log.csv'
-drive_log_2 = 'data/elffer_cycling_data/group2/driving_log.csv'
-
 with open(drive_log_1) as csvfile:
     reader = csv.reader(csvfile)
     for line in reader:
         lines.append(line)
 
-from sklearn.model_selection import train_test_split
-from sklearn.utils import shuffle
+
+# 2. Split the recorded data into training and validation sets
 train_samples, validation_samples = train_test_split(lines, test_size=0.2)
-        
+
+
+# 3. Create a generator to fectch a small fixed number of figures for training
+#    Notes: All the figures from left, center and right cameras are imported for training.
+#           Steering from left and right cameras are tuned and corrected.      
 def generator(samples, img_path, batch_size=32):
     num_samples = len(samples)
     while 1: # Loop forever so the generator never terminates
@@ -49,7 +49,7 @@ def generator(samples, img_path, batch_size=32):
             yield shuffle(X_train, y_train)    
     
     
-# compile and train the model using the generator function
+# 4. Set train and validation sets based on the generator
 current_path = 'data/elffer_cycling_data/group1/'
 train_generator = generator(train_samples, img_path=current_path, batch_size=4)
 validation_generator = generator(validation_samples, img_path=current_path, batch_size=4)
@@ -60,7 +60,12 @@ from keras.layers import Flatten, Dense, Lambda, Convolution2D, MaxPooling2D, Cr
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-
+# Enhanced version of LeNet
+# Notes: This model follows the design of Nvidia team as suggested by the class
+#        The tricks applied in this model includes:
+#        a. Normalization of the figures
+#        b. Cropping unrelated parts of the images
+#        c. Added dropout layers to overcome the problem of overfitting
 def LeNet():
     model = Sequential()
     model.add(Lambda(lambda x: x / 255.0 - 0.5, input_shape=(160, 320, 3)))
@@ -80,21 +85,24 @@ def LeNet():
     return model
 
 
-
 lenet_model = LeNet()
 print(lenet_model.summary())
 
+
+# 5. Fit and train the model
 lenet_model.compile(loss='mse', optimizer='adam')
 history_object = lenet_model.fit_generator(train_generator, steps_per_epoch=
                                           len(train_samples), validation_data=validation_generator,
                                           validation_steps = len(validation_samples), epochs=3)
 
+
+# 6. Save the model
 lenet_model.save('model.h5')
 
+
+# 7. plot the training and validation loss for each epoch
 ### print the keys contained in the history object
 print(history_object.history.keys())
-
-### plot the training and validation loss for each epoch
 plt.plot(history_object.history['loss'])
 plt.plot(history_object.history['val_loss'])
 plt.title('model mean squared error loss')
