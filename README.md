@@ -10,4 +10,4 @@ Term 1:
 
 * [Finished] Project 1: Finding Lane Lines on the Road
 * [Finished] Project 2: Build a Traffic Sign Recognition Classifier
-* [TODO] Project 3: 
+* [Finished] Project 3: Behavioral Cloning
