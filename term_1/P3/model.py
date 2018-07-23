@@ -5,7 +5,7 @@ import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 
-# 1. Import the data got from training mode (only build up a table to )
+# 1. Import the data got from training mode (only build up a table for generators)
 lines = []
 drive_log_1 = 'data/elffer_cycling_data/group1/driving_log.csv'
 with open(drive_log_1) as csvfile:
@@ -60,7 +60,7 @@ from keras.layers import Flatten, Dense, Lambda, Convolution2D, MaxPooling2D, Cr
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-# Enhanced version of LeNet
+# 5. Build the model (enhanced version of LeNet)
 # Notes: This model follows the design of Nvidia team as suggested by the class
 #        The tricks applied in this model includes:
 #        a. Normalization of the figures
@@ -89,18 +89,18 @@ lenet_model = LeNet()
 print(lenet_model.summary())
 
 
-# 5. Fit and train the model
+# 6. Fit and train the model
 lenet_model.compile(loss='mse', optimizer='adam')
 history_object = lenet_model.fit_generator(train_generator, steps_per_epoch=
                                           len(train_samples), validation_data=validation_generator,
                                           validation_steps = len(validation_samples), epochs=3)
 
 
-# 6. Save the model
+# 7. Save the model
 lenet_model.save('model.h5')
 
 
-# 7. plot the training and validation loss for each epoch
+# 8. plot the training and validation loss for each epoch
 ### print the keys contained in the history object
 print(history_object.history.keys())
 plt.plot(history_object.history['loss'])
