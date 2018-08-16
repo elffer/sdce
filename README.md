@@ -11,3 +11,4 @@ Term 1:
 * [Finished] Project 1: Finding Lane Lines on the Road
 * [Finished] Project 2: Build a Traffic Sign Recognition Classifier
 * [Finished] Project 3: Behavioral Cloning
+* [Finished] Project 4: Advanced Lane Finding
