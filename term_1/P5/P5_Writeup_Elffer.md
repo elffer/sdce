@@ -40,7 +40,7 @@ You're reading it!
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the first and second code cell of the IPython notebook.  
+The code for this step is contained in the 1st and 2nd code cell of the IPython notebook.  
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
@@ -63,9 +63,9 @@ The main HOG parameters to adjust in the function of `skimage.feature.hog()` inc
 
 I trained a classifier to detect vehicle in a image. The main steps used to train the classifier are given as follows,
 * 1. Explore and import the training images, as shown in the 1st and 3rd cell of the Ipython notebook;
-* 2. Apply feature engineering on these images, i.e., feature selection and feature pretreatment. The features selected in the project include spatial color features, color histogram features and hog features as shown in the 20th cell of the Ipython notebook. The main approach for feature pretreatment is normalization of the training and test features.
-* 3. Split the features and labels into trainnig and testing samples as shown in the 21th cell of the Ipython notebook.
-* 4. Fit and train the classfier with machine learning models, i.e., svm as used in this project. Moreover, the approach of grid search based on cross validation was applied in this section to tune some parameters of the model. This can be found in the 22th cell of the Ipython notebook.
+* 2. Apply feature engineering on these images, i.e., feature selection and feature pretreatment. The features selected in the project include spatial color features, color histogram features and hog features as shown in the 2nd cell of the Ipython notebook. The main approach for feature pretreatment is normalization of the training and test features.
+* 3. Split the features and labels into trainnig and testing samples as shown in the 3rd cell of the Ipython notebook.
+* 4. Fit and train the classfier with machine learning models, i.e., svm as used in this project. Moreover, the approach of grid search based on cross validation was applied in this section to tune some parameters of the model. This can be found in the 4th cell of the Ipython notebook.
 
 Then the trained classifier can be applied to detect whether a vehicle exists in a sliced section of an image.
 
@@ -80,18 +80,18 @@ For the sliding window search, there are three kinds of parameters tuned to opti
 * 2. Size of the sliding windows. As shown in the training images, the idea windows are the ones that perfectly match the size of vehicles in the images. In the project video, vehicles present different sizes due to their distances from the camera. Accordingly, several sizes of windows were applied to search vehicles, i.e., (32, 32), (48, 48), (64, 64) and (128, 128). 
 * 3. Overlap of sliced windows. Increasing the overlap will provide better match on vehicles, while it will lead to increased number of windows to predict.
 
-The scales and the overlap of windows are decided by applying the detection function on all the test images, i.e., using grid search to find the best combination of them. The setting of these parameters can be found in the 23rd and 24th cells of the Ipython notebook. In the image below, it illustrates what the sliding windows are like with blue lines on the original image.
+The scales and the overlap of windows are decided by applying the detection function on all the test images, i.e., using grid search to find the best combination of them. The setting of these parameters can be found in the 5th and 6th cells of the Ipython notebook. In the image below, it illustrates what the sliding windows are like with blue lines on the original image.
 
 ![alt text][image3]
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
  To optimize the performance of the classfier, the main approaches that are applied in the project include,
-* The ratio of between the number of train/test samples: For cross validation, the ratio of test set was set as 0.33. And this ratio was changed to 0.1 to increase the size of the training set when the model is fixed. See the codes in the 21th cell of the Ipython notebook.
-* Selection of the features: The main improvements from converting the images from the color space of `RGB` to the color space of `YCrCb`, and using all the hog features. The codes are provided in the 20th cell of the Ipython notebook.
+* The ratio of between the number of train/test samples: For cross validation, the ratio of test set was set as 0.33. And this ratio was changed to 0.1 to increase the size of the training set when the model is fixed. See the codes in the 3rd cell of the Ipython notebook.
+* Selection of the features: The main improvements from converting the images from the color space of `RGB` to the color space of `YCrCb`, and using all the hog features. The codes are provided in the 6th cell of the Ipython notebook.
 * Normalization of the features with a scaler: The features from the training and the test images are normalized with the function `sklearn.preprocessing.StandardScaler()`. This is crucial to improve the performance of svc model.
-* Selection of machine learning models for the task of classifier: Besides of svm, the model of random forest was tested as well, as it is usually an ideal model applied in AI competitions in Kaggle. However, the accuracy of the random forest model is much lower than svm in my project. The codes for the model of classifiers are provided in the 22th cell of the Ipython notebook. The models of svm and random forest are trained using the functions of `sklearn.ensemble.RandomForestClassifier()` and `sklearn.model_selection.GridSearchCV()`.
-* Tuning of the parameters: The parameters of the classifer were tuned using the grid search approach, with the function `sklearn.model_selection.GridSearchCV`. The parameters for svc are tuned with values given by `parameters = {'kernel':('linear', 'rbf'), 'C':[1, 10, 50]}`. The codes were given in the 22nd cell of the Ipython notebook.
+* Selection of machine learning models for the task of classifier: Besides of svm, the model of random forest was tested as well, as it is usually an ideal model applied in AI competitions in Kaggle. However, the accuracy of the random forest model is much lower than svm in my project. The codes for the model of classifiers are provided in the 4th cell of the Ipython notebook. The models of svm and random forest are trained using the functions of `sklearn.ensemble.RandomForestClassifier()` and `sklearn.model_selection.GridSearchCV()`.
+* Tuning of the parameters: The parameters of the classifer were tuned using the grid search approach, with the function `sklearn.model_selection.GridSearchCV`. The parameters for svc are tuned with values given by `parameters = {'kernel':('linear', 'rbf'), 'C':[1, 10, 50]}`. The codes were given in the 4th cell of the Ipython notebook.
 
 Ultimately I searched on three scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
@@ -108,9 +108,9 @@ Here's a [link to my video result](output_video/final_video.mp4)
 
 I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
-Besides, I have also adopted a queue to store the labeled boxes from continuious frames, as shown in the 24th cell of the Ipython notebook. The box list from this queue also contributes to reduce the chance of false positive as well.
+Besides, I have also adopted a queue to store the labeled boxes from continuious frames, as shown in the 1st and 6th cell of the Ipython notebook. The box list from this queue also contributes to reduce the chance of false positive as well.
 
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
+Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on some frames of the video:
 
 ### Here are four frames and their corresponding heatmaps:
 
@@ -133,18 +133,17 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-The main prolbems faced in the implementation of the project
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.
+Here I'll talk about the approaches I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.
 
 There were several problems I met in developing the project. 
-* The first one is about the accuracy of the model. I tried RGB at the early stages, while the accuracy is low and caused many false positive detection. This was overcomed by comparing different kind of color spaces. 
-* The second sort of challenge is the detecting different size of vehicles in the image. I simply tried the size of 32 by 32, while it fails to detect vehicles in most cases. Larger sizes, such as 64 by 64 and 128 by 128, fails to detect vehicle in the test3.jpg as provided by the class.
-* The third kind of false positive comes up randomly. The essential solution to reduce them is generating a box queue, which stores positive detections from continious frames to smooth the detection.
+* The first one is about the accuracy of the model. I tried RGB at the early stages, while the accuracy is low and caused many false positive detection. This was overcomed by comparing different kinds of color spaces. 
+* The second sort of challenge is detecting different sizes of vehicles in the image. I simply tried the size of 32 by 32, while it fails to detect vehicles in most cases. Larger sizes, such as 64 by 64 and 128 by 128, fails to detect vehicle in the test3.jpg as provided by the class. This problem was solved by combining different sizes of windows.
+* The third kind of issue is dealling with false positive boxes that came up randomly. The essential solution to reduce them is generating a box queue, which stores positive detections from continious frames to smooth the detection.
+* Moreover, the detecting speed with this pipeline is low and unsolved yet. It can be improved by extracting HOG features just once for the entire region of interest.
 
 There are several scenarios that this pipeline will fail, mainly due to the limitation of the training set. These potential scenarios include:
 * There are other sorts of vehichles on the road, such as trucks, buses, pickups and so on.
 * There are vehicles running in a different direction on the left lane, i.e., coming face to face.
 * The illumination of the scenario is not well.
 
-To overcome these limitation, the model can be improved by gathering more images that contains different sort of vehicles with various limitation conditions. Moreover, applying deep learning algorithms will greatly improve the performance on vehicle detection in various scenarios.
+To overcome these limitations, the model can be improved by gathering more images that contain different sorts of vehicles in various illumination conditions. Moreover, applying deep learning algorithms will greatly improve the performance on vehicle detection in various scenarios.
