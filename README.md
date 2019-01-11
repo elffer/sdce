@@ -13,3 +13,8 @@ Term 1:
 * [Finished] Project 3: Behavioral Cloning
 * [Finished] Project 4: Advanced Lane Finding
 * [Finished] Project 5: Vehicle Detection and Tracking
+
+
+Term 2:
+
+* [Finished] Project 1: Extended Kalman Filters
