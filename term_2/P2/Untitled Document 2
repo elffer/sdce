@@ -1,0 +1,10 @@
+import pymysql
+
+try:
+    con = pymysql.connect('10.66.58.178', 'aps', '2018-aps', 'aps')
+    cur = con.cursor()
+    cur.execute('create table test(f1 varchar(10))', None)
+    print('success')
+except Exception as err:
+    print(str(err))
+
