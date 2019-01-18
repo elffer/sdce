@@ -3,7 +3,7 @@
 ## Introduction
 This is the rep to submit homework for the course of Self-Driving Car Engineering from Udacity.
 
-As listed by the class, the rep has been splited into 3 terms. Currently I am working on term 1. Up to now all the five projects of term 1 have been finished.
+As listed by the class, the rep has been splited into 3 terms. Currently I am working on term 2. Up to now all the five projects of term 1 and two projects of term 2 have been finished.
 
 ## Status of Projects:
 Term 1:
@@ -18,3 +18,4 @@ Term 1:
 Term 2:
 
 * [Finished] Project 1: Extended Kalman Filters
+* [Finished] Project 2: Unscented Kalman Filters
