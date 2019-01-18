@@ -1,4 +1,5 @@
 #include "ukf.h"
+#include <iostream>
 #include "Eigen/Dense"
 
 using Eigen::MatrixXd;
@@ -87,6 +88,49 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
    * TODO: Complete this function! Make sure you switch between lidar and radar
    * measurements.
    */
+  /*
+   * Initialization
+   */
+  if(!is_initialized_){
+//      std::cout << "Not initialized yet." << std::endl;
+      if(meas_package.sensor_type_ == MeasurementPackage::RADAR){
+          std::cout << "It's a radar signal." << std::endl;
+          float rho;
+          float phy;
+          float drho;
+          
+          rho = meas_package.raw_measurements_[0];
+          phy = meas_package.raw_measurements_[1];
+          drho = meas_package.raw_measurements_[2];
+          
+          x_ << rho*cosf(phy),
+                rho*sinf(phy),
+                0,
+                0,
+                0;
+          }
+          else if(meas_package.sensor_type_ == MeasurementPackage::LASER){
+          x_ << meas_package.raw_measurements_[0],
+                meas_package.raw_measurements_[1],
+                0,
+                0,
+                0; 
+          }
+    
+  // Finised initializing.
+  time_us_ = meas_package.timestamp_;
+  is_initialized_ = true;
+  
+  std::cout << "Finished initialization!" << std::endl;
+  return;
+      }
+      
+  /* Prediction */
+  float dt = (meas_package.timestamp_ - time_us_)/1000000.0;
+  time_us_ = meas_package.timestamp_;
+  
+  Prediction(dt);
+  
 }
 
 void UKF::Prediction(double delta_t) {
@@ -95,6 +139,20 @@ void UKF::Prediction(double delta_t) {
    * Modify the state vector, x_. Predict sigma points, the state, 
    * and the state covariance matrix.
    */
+   // Create augmented mean vector
+   VectorXd x_aug_ = VectorXd(n_aug_);
+   
+   // Create augmented state covariance
+   MatrixXd P_aug_ = MatrixXd(n_aug_, n_aug_);
+   
+   // Create sigma point matrix
+   MatrixXd Xsig_pred_ = MatrixXd(n_aug_, 2*n_aug_+1);
+   
+   // Create augmented mean state
+   x_aug_.head(n_x_) = x_;
+   x_aug_(n_aug_-1) = 0;
+   x_aug_(n_aug_-2) = 0;
+   
 }
 
 void UKF::UpdateLidar(MeasurementPackage meas_package) {
