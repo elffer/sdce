@@ -1,6 +1,10 @@
 # Unscented Kalman Filter Project Starter Code
 Self-Driving Car Engineer Nanodegree Program
 
+## Model performance
+This model achieved the accuracy of RMSE = [0.0668, 0.0818, 0.2937, 0.2669], which meets with the requirements of RMSE <= [.09, .10, .40, .30] in the rubics.
+
+
 In this project utilize an Unscented Kalman Filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower that the tolerance outlined in the project rubric. 
 
 This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases).
