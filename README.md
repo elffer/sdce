@@ -19,3 +19,5 @@ Term 2:
 
 * [Finished] Project 1: Extended Kalman Filters
 * [Finished] Project 2: Unscented Kalman Filters
+* [In process] Project 3: Kidnapped Vehicle
+* [Finished] Project 4: PID Control
