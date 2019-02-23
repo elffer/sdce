@@ -21,3 +21,4 @@ Term 2:
 * [Finished] Project 2: Unscented Kalman Filters
 * [In process] Project 3: Kidnapped Vehicle
 * [Finished] Project 4: PID Control
+* [Finished] Project 5: Model Predictive Control
