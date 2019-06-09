@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Session Name="/media/elffer/Samsung_T5/projects/autonomous_driving/codes/class_materials/T3P1_CarND-Path-Planning-Project/src/Path_planning.workspace">
+  <int Value="0" Name="m_selectedTab"/>
+  <wxString Value="/media/elffer/Samsung_T5/projects/autonomous_driving/codes/class_materials/T3P1_CarND-Path-Planning-Project/src/Path_planning.workspace" Name="m_workspaceName"/>
+  <TabInfoArray Name="TabInfoArray">
+    <TabInfo>
+      <wxString Value="/media/elffer/Samsung_T5/projects/autonomous_driving/codes/class_materials/T3P1_CarND-Path-Planning-Project/src/main.cpp" Name="FileName"/>
+      <int Value="192" Name="FirstVisibleLine"/>
+      <int Value="234" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/media/elffer/Samsung_T5/projects/autonomous_driving/codes/class_materials/T3P1_CarND-Path-Planning-Project/src/helpers.h" Name="FileName"/>
+      <int Value="266" Name="FirstVisibleLine"/>
+      <int Value="225" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/media/elffer/Samsung_T5/projects/autonomous_driving/codes/class_materials/T3P1_CarND-Path-Planning-Project/src/spline.h" Name="FileName"/>
+      <int Value="20" Name="FirstVisibleLine"/>
+      <int Value="21" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+  </TabInfoArray>
+  <SerializedObject Name="m_breakpoints">
+    <long Value="0" Name="Count"/>
+  </SerializedObject>
+  <wxString Value="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.inc;*.mm;*.m;*.xrc" Name="m_findInFilesMask"/>
+</Session>
