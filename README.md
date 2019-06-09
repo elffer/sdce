@@ -22,3 +22,8 @@ Term 2:
 * [Finished] Project 3: Kidnapped Vehicle
 * [Finished] Project 4: PID Control
 * [Finished] Project 5: Model Predictive Control
+
+
+Term 3:
+
+* [Finished] Project 1: Path Planning
