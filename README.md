@@ -1,13 +1,15 @@
 # SELF-DRIVING CAR ENGINEER
 
 ## Introduction
+------
 This is the rep to submit homework for the course of Self-Driving Car Engineering from Udacity.
 
-As listed by the class, the rep has been splited into 3 terms. Up to now all the five projects of term 1 and five projects of term 2 have been finished. Currently I am working on term 3. The latest project I finished is the first project in term 3. 
+As listed by the class, the rep has been splited into 3 terms. Up to now all the five projects of term 1 and five projects of term 2 have been finished. Currently I am working on the last project of term 3.
 
 There only two projects left to pass all the requirements.
 
 ## Status of Projects:
+------
 Term 1:
 
 * [Finished] Project 1: Finding Lane Lines on the Road
@@ -29,3 +31,4 @@ Term 2:
 Term 3:
 
 * [Finished] Project 1: Path Planning
+* [Finished] Project 2: Semantic Segmentation
