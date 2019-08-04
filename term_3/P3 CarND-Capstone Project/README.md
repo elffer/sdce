@@ -191,3 +191,8 @@ Even if the socketio has been applied correctly,  the vehicle might still swing 
 #### 3. can't locate node [server.py] in package [styx]
 
 This happened when I ran my codes in the workspace of the course. The reason is that some files had been limited by permissions. As suggested by the course material, 'if you are uploading your own previous work, be sure to make all Python files executable.' The command of ''chmod -R +x /src'' is quite useful.
+
+### References
+
+- [https://github.com/marcomarasca/SDCND-Traffic-Light-Detection](https://github.com/marcomarasca/SDCND-Traffic-Light-Detection)
+- [https://becominghuman.ai/traffic-light-detection-tensorflow-api-c75fdbadac62](https://becominghuman.ai/traffic-light-detection-tensorflow-api-c75fdbadac62)
