@@ -74,21 +74,21 @@ Here are images showing the vehicle driving at different sections of the road, s
 * The TensorFlow Object Detection API has been applied for training and inference.
 * Separate models for simulator and Carla 
 * Four output classes from light classification: GREEN, YELLOW, RED, NONE.
-* See inference code in [light_classification/tl_classifier.py]
+* See inference code in [light_classification/tl_classifier.py](https://github.com/elffer/sdce/blob/master/term_3/P3%20CarND-Capstone%20Project/ros/src/tl_detector/light_classification/tl_classifier.py)
 
 #### Waypoint Updater
 
 * The main purpose of this node is to update the base waypoints published by the node of 'waypoint loader.py'
 * This node updates the velocity of the waypoints according to their distance to the stop line.
 * To improve the searching efficiency, K-D tree has been applied to store the waypoints
-* See code in [waypoint_updater.py].
+* See code in [waypoint_updater.py](https://github.com/elffer/sdce/blob/master/term_3/P3%20CarND-Capstone%20Project/ros/src/waypoint_updater/waypoint_updater.py).
 
 #### Controller
 
 * The controlling commands include the commands regarding the braking, steering and throttle for acceleration.
 * PID controller was applied for controlling the throttle value.
 * The controlling commands are published at the rate of 50Hz.
-* See code in [dbw_node.py]().
+* See code in [dbw_node.py](https://github.com/elffer/sdce/blob/master/term_3/P3%20CarND-Capstone%20Project/ros/src/twist_controller/dbw_node.py).
 
 
 ---
@@ -186,7 +186,7 @@ There are many different reasons that could lead to the problem of 'time out' fr
 
 #### 2. swinging of vehicle
 
-Even if the socketio has been applied correctly,  the vehicle might still swing and run of the road. For my case, it was caused by the computing power of the laptop. A useful solution is to reduce the rate in 'waypoint_updater.py'.
+Even if the socketio has been applied correctly,  the vehicle might still swing and run of the road. For my case, it was caused by the computing power of the laptop. A useful solution is to reduce the rate in [waypoint_updater.py](https://github.com/elffer/sdce/blob/master/term_3/P3%20CarND-Capstone%20Project/ros/src/waypoint_updater/waypoint_updater.py).
 
 #### 3. can't locate node [server.py] in package [styx]
 
