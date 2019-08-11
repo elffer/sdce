@@ -66,7 +66,7 @@ class DBWNode(object):
         
             if not None in (self.current_vel, self.linear_vel, self.angular_vel):
                 self.throttle, self.brake, self.steering = self.controller.control(self.current_vel, self.dbw_enabled, self.linear_vel, self.angular_vel)
-                
+                                
             if self.dbw_enabled:
                 self.publish(self.throttle, self.brake, self.steering)
                 
@@ -86,7 +86,7 @@ class DBWNode(object):
         tcmd = ThrottleCmd()
         tcmd.enable = True
         tcmd.pedal_cmd_type = ThrottleCmd.CMD_PERCENT
-        tcmd.pedal_cmd = throttle
+        tcmd.pedal_cmd = throttle        
         self.throttle_pub.publish(tcmd)
         
         scmd = SteeringCmd()

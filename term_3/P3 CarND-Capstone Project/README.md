@@ -192,6 +192,16 @@ Even if the socketio has been applied correctly,  the vehicle might still swing 
 
 This happened when I ran my codes in the workspace of the course. The reason is that some files had been limited by permissions. As suggested by the course material, 'if you are uploading your own previous work, be sure to make all Python files executable.' The command of ''chmod -R +x /src'' is quite useful.
 
+#### 4. The car remained stationary for a long time even though it was supposed to move.
+
+This is due the max acceleration has been limited to 0.2 in 'twist_controller.py'. As suggested by the project, the maximum value for acceleration could be 1. I updated this value to 0.8 to reduce the jerk.
+
+
+#### 5. In the test on Carla, the vehicle did not stop at the red light.
+
+This is due to an error in my codes. The are mixed existence of tab and spaces for indents. Although it runs without error in my labtop, the log from the test on Carla returned an error as "AttributeError: 'TLDetector' object has no attribute 'process_count'." I have updated this error by using Pycharm to identify these bugs.
+
+
 ### References
 
 - [https://github.com/marcomarasca/SDCND-Traffic-Light-Detection](https://github.com/marcomarasca/SDCND-Traffic-Light-Detection)
