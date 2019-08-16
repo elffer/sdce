@@ -1,0 +1,8 @@
+prefix=/media/elffer/Samsung_T5/projects/autonomous_driving/codes/sdce/term_3/P3 CarND-Capstone Project/ros/install
+
+Name: waypoint_follower
+Description: Description of waypoint_follower
+Version: 0.0.0
+Cflags: -I/media/elffer/Samsung_T5/projects/autonomous_driving/codes/sdce/term_3/P3 CarND-Capstone Project/ros/install/include
+Libs: -L/media/elffer/Samsung_T5/projects/autonomous_driving/codes/sdce/term_3/P3 CarND-Capstone Project/ros/install/lib -llibwaypoint_follower
+Requires: roscpp std_msgs tf geometry_msgs styx_msgs
