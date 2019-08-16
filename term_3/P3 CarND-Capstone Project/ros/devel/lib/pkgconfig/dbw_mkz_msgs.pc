@@ -1,8 +1,0 @@
-prefix=/media/elffer/Samsung_T5/projects/autonomous_driving/codes/sdce/term_3/P3 CarND-Capstone Project/ros/devel
-
-Name: dbw_mkz_msgs
-Description: Description of dbw_mkz_msgs
-Version: 1.0.12
-Cflags: -I/media/elffer/Samsung_T5/projects/autonomous_driving/codes/sdce/term_3/P3 CarND-Capstone Project/ros/devel/include
-Libs: -L/media/elffer/Samsung_T5/projects/autonomous_driving/codes/sdce/term_3/P3 CarND-Capstone Project/ros/devel/lib 
-Requires: message_runtime std_msgs geometry_msgs

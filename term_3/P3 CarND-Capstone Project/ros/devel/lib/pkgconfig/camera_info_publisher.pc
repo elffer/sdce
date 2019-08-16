@@ -1,8 +1,0 @@
-prefix=/media/elffer/Samsung_T5/projects/autonomous_driving/codes/sdce/term_3/P3 CarND-Capstone Project/ros/devel
-
-Name: camera_info_publisher
-Description: Description of camera_info_publisher
-Version: 0.0.0
-Cflags: 
-Libs: -L/media/elffer/Samsung_T5/projects/autonomous_driving/codes/sdce/term_3/P3 CarND-Capstone Project/ros/devel/lib 
-Requires: 
